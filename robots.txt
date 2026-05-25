@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dyakuyemo
+Disallow: /ru/spasibo
+
+Sitemap: https://kredytowespory.pl/sitemap.xml
