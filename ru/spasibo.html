@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Спасибо — KredytoweSpory.pl</title>
+<meta name="description" content="Спасибо за заявку. Партнёрская канцелярия свяжется с тобой в течение 2-5 рабочих дней." />
+<meta name="robots" content="noindex,follow" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { navy: '#0F2A5A', gold: '#FBBF24', cream: '#FFF8E7', bordeaux: '#7A1F2B', success: '#10B981' },
+    fontFamily: { sans: ['Inter','system-ui','sans-serif'], display: ['Lora','Georgia','serif'] }
+  }}};
+</script>
+<style>
+  :root { --navy:#0F2A5A; --gold:#FBBF24; --cream:#FFF8E7; --success-green:#10B981; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #111827; background: var(--cream); }
+  h1, h2, h3, .display { font-family: 'Lora', Georgia, serif; }
+  .btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; transition: all .15s ease; }
+  .btn-gold:hover { background: #f59e0b; transform: translateY(-1px); }
+  .text-navy { color: var(--navy); }
+  .bg-navy { background: var(--navy); }
+  .checkmark { width:96px;height:96px;border-radius:50%;background:var(--success-green); display:inline-flex;align-items:center;justify-content:center; color:white; font-size:56px; font-weight:bold; }
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<header class="bg-white border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="/ru/" class="display font-bold text-[22px] text-navy">KredytoweSpory<span class="text-gold">.pl</span></a>
+    <a href="/ru/" class="text-sm text-gray-700 hover:text-navy">← На главную</a>
+  </div>
+</header>
+
+<main class="flex-1 py-16 sm:py-24">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+    <div class="mb-8"><span class="checkmark">✓</span></div>
+    <h1 class="display text-4xl sm:text-5xl font-bold text-navy mb-4">Спасибо!</h1>
+    <p class="text-xl text-gray-700 mb-2">Заявка получена</p>
+    <p class="text-gray-700 mb-10 leading-relaxed">
+      Мы передаём твои данные партнёрской адвокатской канцелярии. Свяжутся с тобой в течение <strong>2-5 рабочих дней</strong> на твоём языке (UA/RU).
+    </p>
+
+    <div class="bg-white rounded-2xl p-6 sm:p-8 text-left shadow-sm">
+      <h2 class="display text-xl font-bold text-navy mb-5">Что стоит подготовить</h2>
+      <ul class="space-y-3 text-sm sm:text-base">
+        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">📄</span><span><strong>Кредитный договор</strong> — оригинал или фото/скан всех страниц</span></li>
+        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">📅</span><span><strong>График платежей</strong> (harmonogram) — или выписка из банка со всеми платежами</span></li>
+        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">🪪</span><span><strong>PESEL или карта побыту</strong> — для идентификации</span></li>
+        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">🏦</span><span><strong>Название и реквизиты банка</strong> — полное название и IBAN счёта</span></li>
+      </ul>
+    </div>
+
+    <div class="mt-8 bg-navy text-white rounded-2xl p-6 text-left">
+      <h2 class="display text-xl font-bold mb-3">Что дальше?</h2>
+      <ol class="space-y-2 text-sm">
+        <li>1. Проверь свою email-почту (также папку «Спам»)</li>
+        <li>2. Канцелярия позвонит или напишет email — будь готов(а) ответить</li>
+        <li>3. Бесплатно получишь оценку шансов и два предложения (Success Fee / Цессия)</li>
+        <li>4. Решение принимаешь ты — без обязательств</li>
+      </ol>
+    </div>
+
+    <div class="mt-8 text-sm text-gray-600">
+      <p>Есть вопросы? Напиши на <a href="mailto:kontakt@kredytowespory.pl" class="text-navy font-semibold underline">kontakt@kredytowespory.pl</a></p>
+      <p class="mt-1">или позвони <a href="tel:+48222304043" class="text-navy font-semibold">+48 22 230 40 43</a></p>
+    </div>
+
+    <a href="/ru/" class="btn-gold inline-block mt-8 px-8 py-3 rounded-lg">На главную</a>
+  </div>
+</main>
+
+<footer class="bg-navy text-white py-8 mt-auto">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-xs text-white/70 text-center space-y-2">
+    <p>LexKredyt — Anastasiia Kondratenko · NIP 5214148547 · REGON 543750433 · ul. Świeradowska 47, 02-662 Warszawa</p>
+    <p>
+      <a href="/ru/politika-konfidentsialnosti" class="hover:text-gold underline">Политика конфиденциальности</a> ·
+      <a href="/ru/politika-cookies" class="hover:text-gold underline">Cookies</a> ·
+      <a href="/ru/usloviya" class="hover:text-gold underline">Условия сайта</a>
+    </p>
+    <p>© 2026 LexKredyt</p>
+  </div>
+</footer>
+
+</body>
+</html>
