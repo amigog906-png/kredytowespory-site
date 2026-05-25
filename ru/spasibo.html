@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Спасибо — KredytoweSpory.pl</title>
-<meta name="description" content="Спасибо за заявку. Партнёрская канцелярия свяжется с тобой в течение 2-5 рабочих дней." />
+<meta name="description" content="Спасибо за заявку. Жди звонок за 5 минут с польского номера." />
 <meta name="robots" content="noindex,follow" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = { theme: { extend: {
@@ -18,14 +18,19 @@
   }}};
 </script>
 <style>
-  :root { --navy:#0F2A5A; --gold:#FBBF24; --cream:#FFF8E7; --success-green:#10B981; }
+  :root { --navy:#0F2A5A; --gold:#FBBF24; --cream:#FFF8E7; --bordeaux:#7A1F2B; --success-green:#10B981; }
   body { font-family: 'Inter', system-ui, sans-serif; color: #111827; background: var(--cream); }
   h1, h2, h3, .display { font-family: 'Lora', Georgia, serif; }
   .btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; transition: all .15s ease; }
   .btn-gold:hover { background: #f59e0b; transform: translateY(-1px); }
   .text-navy { color: var(--navy); }
   .bg-navy { background: var(--navy); }
+  .text-bordeaux { color: var(--bordeaux); }
+  .bg-bordeaux { background: var(--bordeaux); }
   .checkmark { width:96px;height:96px;border-radius:50%;background:var(--success-green); display:inline-flex;align-items:center;justify-content:center; color:white; font-size:56px; font-weight:bold; }
+  .pulse-ring { position:relative; }
+  .pulse-ring::after { content:''; position:absolute; inset:-8px; border-radius:50%; border:3px solid var(--success-green); opacity:.6; animation: ring 1.8s infinite ease-out; }
+  @keyframes ring { 0%{transform:scale(.9);opacity:.6;} 100%{transform:scale(1.4);opacity:0;} }
 </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
@@ -37,20 +42,31 @@
   </div>
 </header>
 
-<main class="flex-1 py-16 sm:py-24">
+<main class="flex-1 py-12 sm:py-20">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-    <div class="mb-8"><span class="checkmark">✓</span></div>
-    <h1 class="display text-4xl sm:text-5xl font-bold text-navy mb-4">Спасибо!</h1>
-    <p class="text-xl text-gray-700 mb-2">Заявка получена</p>
-    <p class="text-gray-700 mb-10 leading-relaxed">
-      Мы передаём твои данные партнёрской адвокатской канцелярии. Свяжутся с тобой в течение <strong>2-5 рабочих дней</strong> на твоём языке (UA/RU).
-    </p>
+    <div class="mb-8 pulse-ring inline-block"><span class="checkmark">✓</span></div>
+    <h1 class="display text-4xl sm:text-5xl font-bold text-navy mb-3">Спасибо!</h1>
+    <p class="text-xl text-gray-700 mb-8">Заявка получена</p>
+
+    <!-- 5-minute promise (or out-of-hours fallback) -->
+    <div id="callback-promise-block" class="bg-navy text-white rounded-2xl p-6 sm:p-8 mb-8 shadow-xl">
+      <div id="promise-working" class="hidden">
+        <div class="text-5xl mb-3">⚡</div>
+        <div class="display text-2xl sm:text-3xl font-bold mb-3">Жди звонок за 5 минут</div>
+        <p class="text-cream/95 leading-relaxed">с польского номера. Anastasiia уже у CRM и реагирует сразу. Разговор будет на твоём языке (UA/RU), 10-15 минут.</p>
+      </div>
+      <div id="promise-after" class="hidden">
+        <div class="text-5xl mb-3">⏰</div>
+        <div class="display text-2xl sm:text-3xl font-bold mb-3">Перезвоним завтра до 12:00</div>
+        <p class="text-cream/95 leading-relaxed">Ты оставил(а) заявку вне рабочих часов. В рабочие часы (Пн-Пт 9:00-20:00) мы перезваниваем за <strong>5 минут</strong>.</p>
+      </div>
+    </div>
 
     <div class="bg-white rounded-2xl p-6 sm:p-8 text-left shadow-sm">
-      <h2 class="display text-xl font-bold text-navy mb-5">Что стоит подготовить</h2>
+      <h2 class="display text-xl font-bold text-navy mb-5">Что стоит подготовить к звонку</h2>
       <ul class="space-y-3 text-sm sm:text-base">
         <li class="flex gap-3"><span class="text-2xl flex-shrink-0">📄</span><span><strong>Кредитный договор</strong> — оригинал или фото/скан всех страниц</span></li>
-        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">📅</span><span><strong>График платежей</strong> (harmonogram) — или выписка из банка со всеми платежами</span></li>
+        <li class="flex gap-3"><span class="text-2xl flex-shrink-0">📅</span><span><strong>График выплат</strong> (harmonogram) — или выписка из банка со всеми платежами</span></li>
         <li class="flex gap-3"><span class="text-2xl flex-shrink-0">🪪</span><span><strong>PESEL или карта побыту</strong> — для идентификации</span></li>
         <li class="flex gap-3"><span class="text-2xl flex-shrink-0">🏦</span><span><strong>Название и реквизиты банка</strong> — полное название и IBAN счёта</span></li>
       </ul>
@@ -60,15 +76,15 @@
       <h2 class="display text-xl font-bold mb-3">Что дальше?</h2>
       <ol class="space-y-2 text-sm">
         <li>1. Проверь свою email-почту (также папку «Спам»)</li>
-        <li>2. Канцелярия позвонит или напишет email — будь готов(а) ответить</li>
-        <li>3. Бесплатно получишь оценку шансов и два предложения (Success Fee / Цессия)</li>
-        <li>4. Решение принимаешь ты — без обязательств</li>
+        <li>2. Anastasiia позвонит с польского номера — подними трубку 📞</li>
+        <li>3. Передадим адвокатской канцелярии — бесплатная предварительная проверка (3-7 дней)</li>
+        <li>4. Получишь два предложения (🔄 Цессия + 💰 Success Fee) — решение принимаешь ты</li>
       </ol>
     </div>
 
     <div class="mt-8 text-sm text-gray-600">
-      <p>Есть вопросы? Напиши на <a href="mailto:kontakt@kredytowespory.pl" class="text-navy font-semibold underline">kontakt@kredytowespory.pl</a></p>
-      <p class="mt-1">или позвони <a href="tel:+48222304043" class="text-navy font-semibold">+48 22 230 40 43</a></p>
+      <p>📱 Или напиши нам в Telegram: <a href="#" class="text-navy font-semibold underline">@kredytowespory</a></p>
+      <p class="mt-2">Есть вопросы? <a href="mailto:kontakt@kredytowespory.pl" class="text-navy font-semibold underline">kontakt@kredytowespory.pl</a> · <a href="tel:+48222304043" class="text-navy font-semibold">+48 22 230 40 43</a></p>
     </div>
 
     <a href="/ru/" class="btn-gold inline-block mt-8 px-8 py-3 rounded-lg">На главную</a>
@@ -86,6 +102,22 @@
     <p>© 2026 LexKredyt</p>
   </div>
 </footer>
+
+<script>
+  function isWorkingHoursWarsaw(){
+    const now = new Date();
+    const warsaw = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Warsaw' }));
+    const day = warsaw.getDay();
+    const hour = warsaw.getHours();
+    if (day >= 1 && day <= 5 && hour >= 9 && hour < 20) return true;
+    return false;
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const working = isWorkingHoursWarsaw();
+    document.getElementById('promise-working').classList.toggle('hidden', !working);
+    document.getElementById('promise-after').classList.toggle('hidden', working);
+  });
+</script>
 
 </body>
 </html>
